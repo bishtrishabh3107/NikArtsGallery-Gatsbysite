@@ -13,6 +13,7 @@ module.exports = {
     LAZY_IMAGES: true,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-dark-mode`,
     `@chakra-ui/gatsby-plugin`,
     `gatsby-plugin-postcss`,
