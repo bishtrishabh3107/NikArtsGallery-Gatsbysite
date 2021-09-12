@@ -2,8 +2,12 @@ import React, { useState } from "react"
 import { motion } from "framer-motion"
 import "../../../assets/styles/index.scss"
 import { graphql, StaticQuery } from "gatsby"
-import AnchorLink from "react-anchor-link-smooth-scroll"
 import { Link } from "gatsby"
+import SpiritualPaintingsHover from "./SpiritualPaintingsHover"
+import ModernPaintingsHover from "./ModernPaintingsHover"
+import AbstractPaintingsHover from "./AbstractPaintingsHover"
+import AnimePaintingsHover from "./AnimePaintingsHover"
+import BestSellerPaintingsHover from "./BestSellerPaintingsHover"
 
 const Path = props => (
   <motion.path
@@ -146,19 +150,19 @@ export const ToogleMenu = () => {
             </h4>
             <ul className="item-list">
               <li key="1" className="item">
-                <AnchorLink href="#Spiritual">Spiritual Paintings</AnchorLink>
+                <AbstractPaintingsHover />
               </li>
               <li key="2" className="item">
-                <AnchorLink href="#Modern">Modern Paintings</AnchorLink>
+                <SpiritualPaintingsHover />
               </li>
               <li key="3" className="item">
-                <AnchorLink href="#Abstract">Abstract Paintings</AnchorLink>
+                <ModernPaintingsHover />
               </li>
               <li key="4" className="item">
-                <AnchorLink href="#Anime">Anime Paintings</AnchorLink>
+                <AnimePaintingsHover />
               </li>
               <li key="5" className="item">
-                <AnchorLink href="#BestSeller">BestSeller Paintings</AnchorLink>
+                <BestSellerPaintingsHover />
               </li>
               <li key="6" className="item">
                 <a href="https://instagram.com/nikartssss" target="_blank">

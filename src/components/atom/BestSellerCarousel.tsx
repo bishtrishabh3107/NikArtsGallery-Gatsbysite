@@ -21,7 +21,7 @@ function BestSellerCarousel() {
   }, [])
   return (
     <div className="mt-4">
-      <h1 className="flex flex-row justify-center goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl xxl:text-8xl">
+      <h1 className="flex flex-row justify-center goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl 2xl:text-5xl">
         <ReactTextTransition
           text={TEXTS[index % TEXTS.length]}
           springConfig={presets.wobbly}
@@ -44,8 +44,11 @@ function BestSellerCarousel() {
                   showThumbs={false}
                 >
                   {data.allStrapiPainting.edges.map(({ node }) => (
-                    <div key={node.paintingID} className="m-2">
-                      <div>
+                    <div
+                      key={node.paintingID}
+                      className="border-2 xl:border-4 2xl:border-4 border-pink-400"
+                    >
+                      <div className="p-1 lg:p-2 xl:p-4 2xl:p-5">
                         <Link
                           className="flex flex-col"
                           to={`/paintings/${node.uid}`}
@@ -74,7 +77,7 @@ const BestSellerCarouselQuery = graphql`
   {
     allStrapiPainting(
       filter: { categories: { elemMatch: { name: { eq: "Best Sellers" } } } }
-      sort: { fields: date, order: ASC }
+      sort: { fields: date, order: DESC }
     ) {
       edges {
         node {
@@ -86,7 +89,7 @@ const BestSellerCarouselQuery = graphql`
               gatsbyImageData(
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
-                aspectRatio: 1
+                aspectRatio: 0.9
                 layout: CONSTRAINED
                 transformOptions: { cropFocus: CENTER }
               )

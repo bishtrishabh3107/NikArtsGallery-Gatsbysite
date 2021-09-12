@@ -3,12 +3,12 @@ import { graphql, StaticQuery } from "gatsby"
 import "../../assets/styles/index.scss"
 import PaintingMainScreenCard from "../atom/PaintingMainScreenCard"
 import { motion } from "framer-motion"
-import { GiLindenLeaf } from "react-icons/gi"
+import { MdHighQuality } from "react-icons/md"
 import ReactTextTransition, { presets } from "react-text-transition"
 
-const TEXTS = ["SPIRITUAL PAINTINGS", "GOD PAINTINGS"]
+const TEXTS = ["ABSTRACT PAINTINGS", "ILLUSTRATION PAINTINGS"]
 
-function SecondScreen() {
+function AbstractScreen() {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
@@ -31,20 +31,20 @@ function SecondScreen() {
     },
   }
   return (
-    <div className="my-5 mt-4">
-      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl xxl:text-8xl">
+    <div className="my-5 lg:my-6 xl:my-8 2xl:my-10">
+      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl 2xl:text-5xl">
         <ReactTextTransition
           text={TEXTS[index % TEXTS.length]}
           springConfig={presets.wobbly}
         />
-
         <div className="text-green-500 flex flex-row mx-1">
-          <GiLindenLeaf />
-          <GiLindenLeaf />
+          <MdHighQuality />
+          <MdHighQuality />
         </div>
       </h1>
+
       <StaticQuery
-        query={SecondScreenQuery}
+        query={FourthScreenQuery}
         render={data => {
           return (
             <>
@@ -55,7 +55,7 @@ function SecondScreen() {
                 exit="exit"
                 variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
               >
-                <div className="sm:mx-6 md:mx-10 lg:mx-14 xl:mx-16 xxl:mx-20 my-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-8 gap-3 lg:gap-4 xl:gap-5 xxl:gap-6">
+                <div className="sm:mx-6 md:mx-10 lg:mx-14 xl:mx-16 xxl:mx-20 my-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 xxl:grid-cols-6 gap-3 lg:gap-4 xl:gap-5 xxl:gap-6">
                   {data.allStrapiPainting.edges.map(({ node }) => (
                     <div key={node.paintingID} className="m-2">
                       <motion.div variants={thumbnailVariants}>
@@ -80,16 +80,16 @@ function SecondScreen() {
   )
 }
 
-export default SecondScreen
+export default AbstractScreen
 
-const SecondScreenQuery = graphql`
+const FourthScreenQuery = graphql`
   {
     allStrapiPainting(
       filter: {
-        categories: { elemMatch: { name: { eq: "Spiritual Paintings" } } }
+        categories: { elemMatch: { name: { eq: "Abstract Paintings" } } }
       }
       limit: 6
-      sort: { fields: date, order: ASC }
+      sort: { fields: date, order: DESC }
     ) {
       edges {
         node {
@@ -101,7 +101,7 @@ const SecondScreenQuery = graphql`
               gatsbyImageData(
                 placeholder: BLURRED
                 formats: [AUTO, WEBP, AVIF]
-                aspectRatio: 1
+                aspectRatio: 0.9
                 layout: CONSTRAINED
                 transformOptions: { cropFocus: CENTER }
               )

@@ -4,7 +4,6 @@ import { SiGmail } from "react-icons/si"
 import "../../assets/styles/index.scss"
 import NikitaArtsGalleryIcon from "../atom/NikitaArtsGalleryIcon"
 import { Link } from "gatsby"
-import AnchorLink from "react-anchor-link-smooth-scroll"
 
 function Footer() {
   return (
@@ -29,12 +28,12 @@ function Footer() {
               </span>
               <span className="my-2">
                 <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink id="BestSeller">BEST SELLERS</AnchorLink>
+                  <Link to="/bestsellerpaintings/">BEST SELLERS</Link>
                 </div>
               </span>
               <span className="my-2">
                 <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink id="Modern">MODERN ARTS</AnchorLink>
+                  <Link to="/modernpaintings/">MODERN ARTS</Link>
                 </div>
               </span>
             </div>
@@ -44,17 +43,17 @@ function Footer() {
               </span>
               <span className="my-2">
                 <div className="cursor-pointer text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#Spiritual">Spiritual Arts</AnchorLink>
+                  <Link to="/spiritualpaintings/">Spiritual Arts</Link>
                 </div>
               </span>
               <span className="my-2">
                 <div className="text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#Abstract">Abstract Arts</AnchorLink>
+                  <Link to="/abstractpaintings/">Abstract Arts</Link>
                 </div>
               </span>
               <span className="my-2">
                 <div className="text-blue-700 text-md lg:text-xl xl:text-2xl xxl:3xl hover:text-blue-500">
-                  <AnchorLink href="#Anime">Anime Arts</AnchorLink>
+                  <Link to="/animepaintings/">Anime Arts</Link>
                 </div>
               </span>
             </div>

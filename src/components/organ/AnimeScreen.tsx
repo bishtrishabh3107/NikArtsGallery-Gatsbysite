@@ -1,14 +1,14 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import "../../assets/styles/index.scss"
-import { motion } from "framer-motion"
 import PaintingMainScreenCard from "../atom/PaintingMainScreenCard"
-import { BsFillAwardFill } from "react-icons/bs"
+import { motion } from "framer-motion"
+import { AiOutlineApi } from "react-icons/ai"
 import ReactTextTransition, { presets } from "react-text-transition"
 
-const TEXTS = ["MODERN PAINTINGS", "NEW AGE PAINTINGS"]
+const TEXTS = ["ANIME PAINTINGS", "CARTOON PAINTINGS"]
 
-function ThirdScreen() {
+function AnimeScreen() {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
@@ -31,21 +31,19 @@ function ThirdScreen() {
     },
   }
   return (
-    <div className="my-5 mt-4">
-      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl xxl:text-8xl">
+    <div className="my-5 lg:my-6 xl:my-8 2xl:my-10">
+      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl 2xl:text-5xl">
         <ReactTextTransition
           text={TEXTS[index % TEXTS.length]}
           springConfig={presets.wobbly}
         />
-
-        <div className="text-green-500 flex flex-row mx-1">
-          <BsFillAwardFill />
-          <BsFillAwardFill />
+        <div className="text-green-500 flex flex-row mx-1 mt-1">
+          <AiOutlineApi />
+          <AiOutlineApi />
         </div>
       </h1>
-
       <StaticQuery
-        query={ThirdScreenQuery}
+        query={FifthScreenQuery}
         render={data => {
           return (
             <>
@@ -81,14 +79,12 @@ function ThirdScreen() {
   )
 }
 
-export default ThirdScreen
+export default AnimeScreen
 
-const ThirdScreenQuery = graphql`
+const FifthScreenQuery = graphql`
   {
     allStrapiPainting(
-      filter: {
-        categories: { elemMatch: { name: { eq: "Modern Paintings" } } }
-      }
+      filter: { categories: { elemMatch: { name: { eq: "Anime Paintings" } } } }
       limit: 6
       sort: { fields: date, order: ASC }
     ) {

@@ -29,7 +29,7 @@ function PaintingMainScreenCard({ uid, image1, name, productID }) {
               >
                 <GatsbyImage image={getImage(image1)} alt={name} />
               </motion.div>
-              <div className="product-card-name-font lg:text-lg xl:text-xl xxl:text-2xl uppercase font-semibold my-2">
+              <div className="product-card-name-font lg:text-lg xl:text-xl 2xl:text-4xl uppercase font-semibold my-2">
                 <h1>{name}</h1>
               </div>
             </Link>

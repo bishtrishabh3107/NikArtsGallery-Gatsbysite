@@ -1,15 +1,12 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import AbstractScreen from "../components/organ/AbstractScreen"
 import Layout from "../components/Global/Layout"
 import "../assets/styles/index.scss"
-import SpiritualScreen from "../components/organ/SpiritualScreen"
-import ModernScreen from "../components/organ/ModernScreen"
-import AbstractScreen from "../components/organ/AbstractScreen"
-import AnimeScreen from "../components/organ/AnimeScreen"
 import { motion } from "framer-motion"
-import FirstScreen from "../components/organ/FirstScreen"
+import SpiritualScreen from "../components/organ/SpiritualScreen"
 
-const IndexPage = () => {
+function AbstractPaintings() {
   const data = useStaticQuery(query)
 
   return (
@@ -20,29 +17,17 @@ const IndexPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <FirstScreen />
-
-        <hr className="border-2"></hr>
-
-        <SpiritualScreen />
-
-        <hr className="border-2"></hr>
-
-        <ModernScreen />
-
-        <hr className="border-2"></hr>
-
         <AbstractScreen />
-
         <hr className="border-2"></hr>
-
-        <AnimeScreen />
-
-        <hr></hr>
+        <div className="mt-10">
+          <SpiritualScreen />
+        </div>
       </motion.div>
     </Layout>
   )
 }
+
+export default AbstractPaintings
 
 const query = graphql`
   query {
@@ -57,5 +42,3 @@ const query = graphql`
     }
   }
 `
-
-export default IndexPage

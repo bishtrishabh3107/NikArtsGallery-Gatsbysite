@@ -1,14 +1,14 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import "../../assets/styles/index.scss"
-import PaintingMainScreenCard from "../atom/PaintingMainScreenCard"
 import { motion } from "framer-motion"
-import { AiOutlineApi } from "react-icons/ai"
+import PaintingMainScreenCard from "../atom/PaintingMainScreenCard"
+import { BsFillAwardFill } from "react-icons/bs"
 import ReactTextTransition, { presets } from "react-text-transition"
 
-const TEXTS = ["ANIME PAINTINGS", "CARTOON PAINTINGS"]
+const TEXTS = ["MODERN PAINTINGS", "NEW AGE PAINTINGS"]
 
-function FifthScreen() {
+function ModernScreen() {
   const [index, setIndex] = React.useState(0)
 
   React.useEffect(() => {
@@ -31,19 +31,21 @@ function FifthScreen() {
     },
   }
   return (
-    <div className="my-5 my-5">
-      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl xxl:text-8xl">
+    <div className="my-5 lg:my-6 xl:my-8 2xl:my-10">
+      <h1 className="flex flex-row justify-start goodsumpire-font uppercase font-extrabold text-sm lg:text-lg xl:text-xl 2xl:text-5xl">
         <ReactTextTransition
           text={TEXTS[index % TEXTS.length]}
           springConfig={presets.wobbly}
         />
-        <div className="text-green-500 flex flex-row mx-1 mt-1">
-          <AiOutlineApi />
-          <AiOutlineApi />
+
+        <div className="text-green-500 flex flex-row mx-1">
+          <BsFillAwardFill />
+          <BsFillAwardFill />
         </div>
       </h1>
+
       <StaticQuery
-        query={FifthScreenQuery}
+        query={ThirdScreenQuery}
         render={data => {
           return (
             <>
@@ -79,14 +81,16 @@ function FifthScreen() {
   )
 }
 
-export default FifthScreen
+export default ModernScreen
 
-const FifthScreenQuery = graphql`
+const ThirdScreenQuery = graphql`
   {
     allStrapiPainting(
-      filter: { categories: { elemMatch: { name: { eq: "Anime Paintings" } } } }
+      filter: {
+        categories: { elemMatch: { name: { eq: "Modern Paintings" } } }
+      }
       limit: 6
-      sort: { fields: date, order: ASC }
+      sort: { fields: date, order: DESC }
     ) {
       edges {
         node {

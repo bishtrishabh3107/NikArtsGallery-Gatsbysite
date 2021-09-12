@@ -2,8 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Global/Layout"
 import PaintingPage from "../components/PaintingPage"
-import SecondScreen from "../components/organ/SecondScreen"
-import FifthScreen from "../components/organ/FifthScreen"
+import SpiritualScreen from "../components/organ/SpiritualScreen"
+import AnimeScreen from "../components/organ/AnimeScreen"
 import { motion } from "framer-motion"
 
 export const query = graphql`
@@ -111,9 +111,9 @@ const PaintingTemplate = ({ data }) => {
               </div>
             ))}
           </div>
-          <SecondScreen />
+          <SpiritualScreen />
           <hr className="border-2"></hr>
-          <FifthScreen />
+          <AnimeScreen />
         </div>
       </motion.div>
     </Layout>
