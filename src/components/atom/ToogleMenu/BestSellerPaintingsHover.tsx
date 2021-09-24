@@ -7,9 +7,7 @@ function BestSellerPaintingsHover() {
   const CategoriesHover = graphql`
     query {
       allStrapiPainting(
-        filter: {
-          categories: { elemMatch: { name: { eq: "BestSeller Paintings" } } }
-        }
+        filter: { categories: { elemMatch: { name: { eq: "Best Sellers" } } } }
       ) {
         edges {
           node {
